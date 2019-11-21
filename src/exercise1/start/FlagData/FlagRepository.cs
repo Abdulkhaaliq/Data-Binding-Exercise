@@ -56,7 +56,8 @@ namespace FlagData
             // Turn the XML into Flag objects with LINQ to XML.
             var flags = data.Elements("flag")
                 .Select(f =>
-                   new Flag {
+                   new Flag
+                   {
                        Country = f.Attribute("country").Value,
                        ImageUrl = "FlagData." + f.Attribute("imageUrl").Value,
                        DateAdopted = (DateTime)f.Attribute("adopted"),
@@ -81,3 +82,4 @@ namespace FlagData
         }
     }
 }
+

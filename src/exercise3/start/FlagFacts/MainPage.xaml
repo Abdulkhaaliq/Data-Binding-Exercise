@@ -15,6 +15,13 @@
                      Clicked="OnShow" Icon="ic_action_search.png" />
     </ContentPage.ToolbarItems>
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <cvt:EmbeddedImageConverter x:Key="irConverter" 
+                    ResolvingAssemblyType="{x:Type data:Flag}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ScrollView>
         <StackLayout Spacing="10">
             <StackLayout.Padding>
@@ -25,7 +32,8 @@
                 </OnPlatform>
             </StackLayout.Padding>
 
-            <Image x:Name="flagImage" HeightRequest="200" 
+            <Image HeightRequest="200" 
+                    Source="{Binding ImageUrl, Converter={StaticResource irConverter}}"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     Aspect="AspectFit" />
